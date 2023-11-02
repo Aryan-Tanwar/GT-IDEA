@@ -7,6 +7,10 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.preprocessing import LabelEncoder
 from sklearn.linear_model import LinearRegression
 from textblob import TextBlob
+import warnings
+
+warnings.filterwarnings(action='ignore', category=UserWarning)
+
 
 # Apple-esque UI Enhancement
 st.set_page_config(
@@ -146,6 +150,7 @@ if page == "Customer Purchases":
 
     # Display the model's accuracy
     st.write(f"Model's Accuracy: **{accuracy * 100:.2f}%**")
+    
     def predict_product_priority(location_name):
         location_encoded = le_location.transform([location_name])
 
