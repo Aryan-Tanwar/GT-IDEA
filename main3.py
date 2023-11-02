@@ -90,7 +90,7 @@ total_profit = total_revenue - total_cost
 
 
 if page == "Customer Purchases":
-    st.title("Customer Purchases and Ratings")
+    st.title("Customer Purchases and Ratings - Randomly Generated")
     st.dataframe(df.head(50))  # Display the first 50 rows for better layout
     st.write(f"**Total Profit:** ${total_profit:,.2f}")
 
@@ -162,7 +162,7 @@ def simple_sentiment_analysis(review):
 
 
 if page == "Sentiment Analysis":
-    st.title("Sentiment Analysis of Customer Reviews")
+    st.title("Sentiment Analysis of Customer Reviews - Randomly Generated")
 
     # Generate reviews and determine sentiment
     reviews = ["Loved it!", "Not as expected.", "Decent product.", "Value for money.", "Disappointed.", "Highly recommend!"]
@@ -212,7 +212,7 @@ if page == "Sentiment Analysis":
 
 # Inventory Analysis
 if page == "Inventory Analysis":
-    st.title("Inventory Analysis and Prediction")
+    st.title("Inventory Analysis and Prediction - Randomly Generated")
 
     # Generate Inventory Data
     dates = pd.date_range(start="2023-11-13", end="2023-11-20", freq='D')
