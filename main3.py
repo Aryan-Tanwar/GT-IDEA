@@ -94,6 +94,7 @@ total_profit = total_revenue - total_cost
 
 
 if page == "Customer Purchases":
+    
     st.title("WiseAcquire")
     st.header("Customer Purchases and Ratings Randomly Generated")
     st.dataframe(df.head(50))  # Display the first 50 rows for better layout
