@@ -94,8 +94,7 @@ total_profit = total_revenue - total_cost
 
 
 if page == "Customer Purchases":
-    st.title(WiseAcquire)
-    st.header("Customer Purchases and Ratings - Randomly Generated")
+    st.title("Customer Purchases and Ratings - Randomly Generated")
     st.dataframe(df.head(50))  # Display the first 50 rows for better layout
     st.write(f"**Total Profit:** ${total_profit:,.2f}")
 
@@ -202,7 +201,6 @@ def simple_sentiment_analysis(review):
 
 
 if page == "Sentiment Analysis":
-    st.title(WiseAcquire)
     st.title("Sentiment Analysis of Customer Reviews - Randomly Generated")
 
     # Generate reviews and determine sentiment
@@ -253,7 +251,6 @@ if page == "Sentiment Analysis":
 
 # Inventory Analysis
 if page == "Inventory Analysis":
-    st.title(WiseAcquire)
     st.title("Inventory Analysis and Prediction - Randomly Generated")
 
     # Generate Inventory Data
