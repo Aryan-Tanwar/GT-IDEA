@@ -146,6 +146,40 @@ if page == "Customer Purchases":
 
     # Display the model's accuracy
     st.write(f"Model's Accuracy: **{accuracy * 100:.2f}%**")
+    def predict_product_priority(location_name):
+        location_encoded = le_location.transform([location_name])
+
+        # Reshape the location_encoded array to make it 2D
+        location_encoded_2d = location_encoded.reshape(-1, 1)
+
+        location_encoded_df = pd.DataFrame(location_encoded_2d, columns=['location'])
+
+        # Use the model to predict probabilities for each product
+        probabilities = clf.predict_proba(location_encoded_2d)[0]
+
+        # Get products sorted by their probabilities
+        sorted_indices = np.argsort(probabilities)[::-1]  # Sort in descending order
+        sorted_products = le_product.inverse_transform(sorted_indices)
+
+        return sorted_products[:3]  # Return the top 3 products
+
+    # Predict Product priority for a given location
+    st.subheader("Product Placement Recommendation based on Location")
+    location_to_predict = st.selectbox("Select a Location for Product Prediction:", locations, key='product_prediction')
+    predicted_products_priority = predict_product_priority(location_to_predict)
+    front_product = predicted_products_priority[0]
+    second_product = predicted_products_priority[1]
+    third_product = predicted_products_priority[2]
+
+    st.write(
+        f"In {location_to_predict}, **{front_product}** should be placed at the front of the store for maximum visibility.")
+    st.write(
+        f"Whereas, **{second_product}** and **{third_product}** can be placed farther back to optimize store layout.")
+
+    # Display the model's accuracy
+    st.write(f"Model's Accuracy: **{accuracy * 100:.2f}%**")
+
+
 
 
 def simple_sentiment_analysis(review):
